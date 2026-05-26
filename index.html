@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alif Anugrah Syam | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #1D4ED8;
+            --primary-light: #60A5FA;
+            --primary-glow: #93C5FD;
+            --primary-pale: #DBEAFE;
+            --primary-ultra: #EFF6FF;
+            --bg: #F8FBFF;
+            --bg-white: #FFFFFF;
+            --text: #1E293B;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --border: #E2E8F0;
+            --shadow: rgba(59, 130, 246, 0.08);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-glow); border-radius: 3px; }
+
+        /* === NAVBAR === */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-link:hover { color: var(--primary); background: var(--primary-pale); }
+        .nav-link.active { color: var(--primary); background: var(--primary-pale); }
+        
+
+        /* === HERO - SIMPLE & PROFESSIONAL === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 24px 60px;
+            background: linear-gradient(180deg, var(--primary-ultra) 0%, var(--bg) 100%);
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 70%, rgba(96, 165, 250, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 60px;
+            align-items: center;
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-left { text-align: left; }
+        
+        .hero-name {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .hero-name span {
+            color: var(--primary);
+        }
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-tagline::before {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .hero-bio {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+        }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
+        .btn-outline {
+            background: white;
+            color: var(--text);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* Avatar */
+        .hero-right { position: relative; }
+        .avatar-container {
+            width: 280px;
+            height: 280px;
+            position: relative;
+        }
+        .avatar-ring {
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            opacity: 0.2;
+            animation: pulse-ring 3s ease-in-out infinite;
+        }
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.05); opacity: 0.3; }
+        }
+        .avatar-box {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+
+        /* Social Links */
+        .hero-socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 32px;
+        }
+        .social-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s;
+            color: var(--text-muted);
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        .social-link:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow); }
+        .social-link.github:hover { color: #333; border-color: #333; }
+        .social-link.instagram:hover { color: #E4405F; border-color: #E4405F; }
+        .social-link.tiktok:hover { color: #000; border-color: #000; }
+        .social-link.linkedin:hover { color: #0A66C2; border-color: #0A66C2; }
+
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+        .stat-item { text-align: left; }
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* === SECTIONS === */
+        section { padding: 80px 24px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* === ABOUT === */
+        #about { background: white; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .about-avatar-wrap {
+            position: sticky;
+            top: 100px;
+        }
+        .about-avatar-box {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--primary-pale), var(--primary-ultra));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+        .about-avatar-box img { width: 100%; height: 100%; object-fit: cover; }
+        .about-info-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 16px;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .info-row:last-child { border-bottom: none; }
+        .info-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--primary-pale); display: flex; align-items: center; justify-content: center; color: var(--primary); }
+        .info-label { color: var(--text-light); font-size: 0.8rem; }
+        .info-value { color: var(--text); font-weight: 500; }
+
+        /* About text */
+        .about-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .about-text {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .about-text p { margin-bottom: 12px; }
+        .about-text strong { color: var(--text); }
+
+        /* === SKILLS === */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .skill-tag {
+            padding: 10px 22px;
+            border-radius: 50px;
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        .skill-tag:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 15px var(--shadow); }
+
+        /* === EDUCATION === */
+        #education { background: white; }
+        .edu-list { display: flex; flex-direction: column; gap: 16px; max-width: 700px; margin: 0 auto; }
+        .edu-item {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.2s;
+        }
+        .edu-item:hover { border-color: var(--primary); box-shadow: 0 4px 20px var(--shadow); }
+        .edu-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--primary-pale); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; color: var(--primary); }
+        .edu-info { flex: 1; }
+        .edu-title { font-weight: 700; font-size: 1rem; margin-bottom: 2px; }
+        .edu-meta { font-size: 0.85rem; color: var(--text-muted); }
+        
+
+        /* === ACHIEVEMENTS === */
+        .achievements-filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); border-color: var(--primary); color: white; }
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .achievement-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        .achievement-item:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 25px var(--shadow); }
+        .ach-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .ach-badge.achievement { background: #FEF3C7; }
+        .ach-badge.experience { background: var(--primary-pale); }
+        .ach-badge.committee { background: #F3E8FF; }
+        .ach-info { flex: 1; min-width: 0; }
+        .ach-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
+        .ach-meta { font-size: 0.8rem; color: var(--text-muted); }
+        .ach-type-badge {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+        .ach-type-badge.achievement { background: #FEF3C7; color: #B45309; }
+        .ach-type-badge.experience { background: var(--primary-pale); color: var(--primary); }
+        .ach-type-badge.committee { background: #F3E8FF; color: #7C3AED; }
+
+        /* === PROJECTS === */
+        #projects { background: white; }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        .project-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 40px var(--shadow); }
+        .project-top { display: flex; align-items: center; justify-content: space-between; }
+        .project-folder { font-size: 1.5rem; color: var(--primary); }
+        .project-lang { font-size: 0.75rem; color: var(--text-light); }
+        .project-name { font-weight: 700; font-size: 1rem; color: var(--primary); }
+        .project-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1; }
+        .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+        .project-link-btn { font-size: 0.8rem; color: var(--primary); display: flex; align-items: center; gap: 4px; font-weight: 500; }
+
+        /* === CONTACT === */
+        #contact { text-align: center; }
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 28px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        .contact-card:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 25px var(--shadow); }
+        .contact-card i { font-size: 1.2rem; }
+        .contact-card.wa i { color: #25D366; }
+        .contact-card.email i { color: #EA4335; }
+        .contact-card.ig i { color: #E4405F; }
+        .contact-card.linkedin i { color: #0A66C2; }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer strong { color: var(--primary); }
+
+        /* === ADD ITEM BTN === */
+        
+
+        /* === MODAL === */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 480px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        .modal-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; color: var(--text); }
+        .form-group { margin-bottom: 16px; }
+        .form-label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--primary); }
+        .form-textarea { resize: vertical; min-height: 80px; }
+        .form-select { cursor: pointer; }
+        .modal-actions { display: flex; gap: 12px; margin-top: 24px; }
+        .modal-actions .btn { flex: 1; justify-content: center; }
+        .btn-secondary { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+        .btn-danger { background: #FEE2E2; color: #EF4444; border: 1px solid #FECACA; }
+
+        /* === TOAST === */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--text);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 2000;
+            transition: transform 0.3s ease;
+            white-space: nowrap;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* === MOBILE MENU === */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 16px; }
+            .mobile-toggle { display: block; }
+            
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+            .hero-left { order: 2; }
+            .hero-right { order: 1; }
+            .hero-badge { margin: 0 auto 20px; }
+            .hero-tagline { justify-content: center; }
+            .hero-tagline::before { display: none; }
+            .hero-bio { margin: 0 auto 24px; }
+            .hero-actions { justify-content: center; }
+            .hero-socials { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .avatar-container { width: 200px; height: 200px; margin: 0 auto; }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .about-avatar-wrap { position: static; }
+            .about-avatar-box { max-width: 250px; margin: 0 auto; }
+            section { padding: 60px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-inner">
+        <a href="#hero" class="nav-logo">AAS</a>
+        <div class="nav-links" id="navLinks">
+            <a href="#hero" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+</nav>
+
+<!-- HERO - SIMPLE & PROFESSIONAL -->
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <div class="hero-left">
+            <h1 class="hero-name">
+                Alif Anugrah<br>
+                <span>Syam</span>
+            </h1>
+            
+            <p class="hero-tagline">Software Dev Enthusiast · Data Scientist · AI Builder</p>
+            
+            <p class="hero-bio">
+                Mahasiswa Sains Aktuaria yang passionate di bidang teknologi dan pengembangan perangkat lunak. 
+                Saya percaya matematika adalah fondasi dari solusi innovation.
+            </p>
+            
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-folder-open"></i> Lihat Projects
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i> Hubungi Saya
+                </a>
+            </div>
+            
+            <div class="hero-socials">
+                <a href="https://github.com/anugrah3607-coder" target="_blank" class="social-link github" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com/qlifngrah" target="_blank" class="social-link instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://tiktok.com/@kajdhddwry" target="_blank" class="social-link tiktok" title="TikTok">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.36 6.26 6.26 0 001.8-4.08V8.82a8.33 8.33 0 004.78 1.52V6.79a4.85 4.85 0 01-1.01-.1z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/Alif%20Anugrah" target="_blank" class="social-link linkedin" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="repoCount">-</span>
+                    <span class="stat-label">Repositories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">8</span>
+                    <span class="stat-label">Skills</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">2+</span>
+                    <span class="stat-label">Achievements</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-right">
+            <div class="avatar-container">
+                <div class="avatar-ring"></div>
+                <div class="avatar-box">
+                    <img src="fotoku.jpeg" alt="Alif Anugrah Syam" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%233B82F6%22 width=%22200%22 height=%22200%22 rx=%2250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter,sans-serif%22 font-size=%2248%22 font-weight=%22600%22 fill=%22white%22%3EAAS%3C/text%3E%3C/svg%3E'">
+                </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Tentang</div>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-avatar-wrap">
+                <div class="about-avatar-box">
+                    <img src="fotoku.jpeg" alt="Alif Anugrah Syam" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%233B82F6%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter,sans-serif%22 font-size=%2232%22 font-weight=%22600%22 fill=%22white%22%3EAlif%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="about-info-card">
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <div class="info-label">Jurusan</div>
+                            <div class="info-value">Sains Aktuaria</div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fas fa-university"></i></div>
+                        <div>
+                            <div class="info-label">Universitas</div>
+                            <div class="info-value">Universitas Negeri Makassar</div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fas fa-code"></i></div>
+                        <div>
+                            <div class="info-label">GitHub</div>
+                            <div class="info-value">@anugrah3607-coder</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="about-title">Software Dev Enthusiast</h3>
+                <div class="about-text">
+                    <p>Saya adalah mahasiswa <strong>Matematika dengan spesialisasi Sains Aktuaria</strong> yang memiliki ketertarikan besar terhadap teknologi dan pemrograman. Saya senang mengeksplorasi berbagai bidang seperti <strong>Data Science</strong>, <strong>Agentic AI</strong>, serta <strong>Software Development</strong>.</p>
+                    <p>Dengan fondasi matematika yang kuat, saya mampu menyelesaikan masalah kompleks dan mengembangkan solusi inovatif. Saya terus belajar dan berkembang di bidang teknologi.</p>
+                    <p>Saya aktif mengikuti berbagai kegiatan akademik dan organisasi untuk mengembangkan kemampuan leadership dan teamwork.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Kemampuan</div>
+            <h2 class="section-title">Skills</h2>
+            <p class="section-desc">Tech stack dan kemampuan yang saya kuasai</p>
+        </div>
+        <div class="skills-list" id="skillsList">
+            <span class="skill-tag">Mathematics</span>
+            <span class="skill-tag">Data Science</span>
+            <span class="skill-tag">Agentic AI</span>
+            <span class="skill-tag">Automation</span>
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Software Development</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Data Analysis</span>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Akademik</div>
+            <h2 class="section-title">Education</h2>
+            <p class="section-desc">Riwayat pendidikan saya</p>
+        </div>
+        <div class="edu-list" id="eduList"></div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Portfolio</div>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-desc">Project dari GitHub saya</p>
+        </div>
+        <div class="projects-grid" id="projectsGrid">
+            <div style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px;">
+                <div style="font-size:2rem;margin-bottom:8px;">🔄</div>
+                Loading GitHub repos...
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Pengalaman</div>
+            <h2 class="section-title">Achievements</h2>
+            <p class="section-desc">Achievement, pengalaman, dan kepanitiaan</p>
+        </div>
+        <div class="achievements-filters" id="achFilters">
+            <button class="filter-btn active" data-filter="all" onclick="filterAchievements('all')">Semua</button>
+            <button class="filter-btn" data-filter="achievement" onclick="filterAchievements('achievement')">🏆 Achievement</button>
+            <button class="filter-btn" data-filter="experience" onclick="filterAchievements('experience')">💼 Experience</button>
+            <button class="filter-btn" data-filter="committee" onclick="filterAchievements('committee')">🎯 Committee</button>
+        </div>
+        <div class="achievements-list" id="achievementsList"></div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Hubungi</div>
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-desc">Tertarik untuk collaborate? Jangan ragu untuk menghubungi saya!</p>
+        </div>
+        <div class="contact-links">
+            <a href="https://wa.me/" target="_blank" class="contact-card wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="mailto:" class="contact-card email"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://instagram.com/qlifngrah" target="_blank" class="contact-card ig"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://linkedin.com/in/Alif%20Anugrah" target="_blank" class="contact-card linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Made with ❤️ by <strong>Alif Anugrah Syam</strong> · © 2025</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+        <h3 class="modal-title" id="modalTitle">Tambah Item</h3>
+        <div id="modalBody">
+            <div id="eduFormFields" style="display:none;">
+                <div class="form-group">
+                    <label class="form-label">Institusi</label>
+                    <input class="form-input" id="modalInstitution" placeholder="Contoh: Universitas Negeri Makassar">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Jurusan / Program Studi</label>
+                    <input class="form-input" id="modalMajor" placeholder="Contoh: Matematika — Sains Aktuaria">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Jenjang</label>
+                    <select class="form-select" id="modalLevel">
+                        <option value="S1">Sarjana (S1)</option>
+                        <option value="S2">Magister (S2)</option>
+                        <option value="S3">Doktor (S3)</option>
+                        <option value="SMA">SMA / SMK</option>
+                        <option value="SMP">SMP</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tahun Masuk</label>
+                    <input class="form-input" id="modalStartYear" placeholder="2022">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tahun Lulus (kosongkan jika belum)</label>
+                    <input class="form-input" id="modalEndYear" placeholder="2026">
+                </div>
+            </div>
+            <div id="achFormFields">
+                <div class="form-group">
+                    <label class="form-label">Jenis</label>
+                    <select class="form-select" id="modalType">
+                        <option value="achievement">🏆 Achievement</option>
+                        <option value="experience">💼 Experience</option>
+                        <option value="committee">🎯 Committee</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Nama / Judul</label>
+                    <input class="form-input" id="modalTitleInput" placeholder="Contoh: Finalis Lomba Programming">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Penyelenggara</label>
+                    <input class="form-input" id="modalOrg" placeholder="Contoh: HIMATIKA">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tahun</label>
+                    <input class="form-input" id="modalYear" placeholder="2024">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Deskripsi (opsional)</label>
+                    <textarea class="form-textarea" id="modalDesc" placeholder="Deskripsi singkat..."></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-actions" id="modalActions">
+            <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+            <button class="btn btn-primary" onclick="saveModal()">
+                <i class="fas fa-check"></i> Simpan
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// === DATA ===
+const DATA = {
+    name: 'Alif Anugrah Syam',
+    tagline: 'Software Dev Enthusiast | Data Scientist | AI Builder',
+    github: 'anugrah3607-coder',
+    socials: {
+        github: 'anugrah3607-coder',
+        instagram: 'qlifngrah',
+        tiktok: 'kajdhddwry',
+        linkedin: 'Alif Anugrah'
+    },
+    education: [
+        { institution: 'Madrasah Aliyah Negeri 1 Kota Makassar', major: 'SMA · IPA', level: 'SMA', startYear: '2022', endYear: '2025' },
+        { institution: 'Universitas Negeri Makassar', major: 'Matematika — Sains Aktuaria', level: 'S1', startYear: '2025', endYear: '' }
+    ],
+    achievements: [
+        { type: 'committee', title: 'Muktamar SC Aljabar ke-XI', org: 'Study Club Mahasiswa Matematika', year: '2025', icon: '🎯', desc: '' },
+        { type: 'committee', title: 'Panitia Geometri 2025', org: 'HMJ Matematika', year: '2025', icon: '🎯', desc: '' },
+        { type: 'committee', title: 'Panitia MANSA Cup Vol.III', org: 'MAN 1 Kota Makassar', year: '2024', icon: '🎯', desc: '' },
+        { type: 'committee', title: 'Panitia Inaugurasi Simetria 25', org: 'HMJ Matematika UNM', year: '2026', icon: '🎯', desc: '' },
+        { type: 'achievement', title: 'Most Outstanding Essay', org: 'HIMASTAT Universitas Hasanuddin', year: '2026', icon: '🏆', desc: '' },
+        { type: 'achievement', title: 'Mathematics Outstanding Student', org: 'HMJ Matematika UNM', year: '2026', icon: '🏆', desc: '' }
+    ]
+};
+
+// === FETCH GITHUB ===
+async function fetchGitHub() {
+    const grid = document.getElementById('projectsGrid');
+    const repoCountEl = document.getElementById('repoCount');
+    try {
+        const res = await fetch('https://api.github.com/users/anugrah3607-coder/repos?sort=updated&per_page=12');
+        if (!res.ok) throw new Error();
+        const repos = await res.json();
+
+        if (repoCountEl) repoCountEl.textContent = repos.length || '-';
+        if (repos.length === 0) {
+            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px;">Belum ada repository</p>';
+            return;
+        }
+
+        grid.innerHTML = repos.map(r => `
+            <a href="${r.html_url}" target="_blank" class="project-card">
+                <div class="project-top">
+                    <span class="project-folder"><i class="far fa-folder"></i></span>
+                    <span class="project-lang">${r.language || '—'}</span>
+                </div>
+                <div class="project-name">${r.name}</div>
+                <div class="project-desc">${r.description || 'Tanpa deskripsi'}</div>
+                <div class="project-footer">
+                    <span class="project-link-btn">View →</span>
+                    ${r.stargazers_count > 0 ? `<span style="font-size:0.8rem;color:var(--text-light);"><i class="fas fa-star"></i> ${r.stargazers_count}</span>` : ''}
+                </div>
+            </a>
+        `).join('');
+    } catch(e) {
+        if (repoCountEl) repoCountEl.textContent = '-';
+        grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px;">
+            Gagal load GitHub repos · <a href="https://github.com/anugrah3607-coder" target="_blank" style="color:var(--primary);">Buka langsung →</a>
+        </p>`;
+    }
+}
+
+// === EDUCATION ===
+function renderEducation() {
+    const list = document.getElementById('eduList');
+    const saved = JSON.parse(localStorage.getItem('portfolio_education') || 'null');
+    const items = saved && saved.length > 0 ? saved : DATA.education;
+
+    if (items.length === 0) {
+        list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Belum ada data pendidikan</p>';
+        return;
+    }
+
+    list.innerHTML = items.map((item, idx) => {
+        const endLabel = item.endYear ? item.endYear : 'Sekarang';
+        return `
+        <div class="edu-item" data-idx="${idx}">
+            <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="edu-info">
+                <div class="edu-title">${item.institution}</div>
+                <div class="edu-meta">${item.level} · ${item.major} · ${item.startYear} — ${endLabel}</div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function openEduModal(idx) {
+    const modal = document.getElementById('modalOverlay');
+    document.getElementById('modalTitle').textContent = idx >= 0 ? 'Edit Pendidikan' : 'Tambah Pendidikan';
+    document.getElementById('eduFormFields').style.display = 'block';
+    document.getElementById('achFormFields').style.display = 'none';
+
+    document.getElementById('modalInstitution').value = '';
+    document.getElementById('modalMajor').value = '';
+    document.getElementById('modalLevel').value = 'S1';
+    document.getElementById('modalStartYear').value = '';
+    document.getElementById('modalEndYear').value = '';
+
+    if (idx >= 0) {
+        const saved = JSON.parse(localStorage.getItem('portfolio_education') || 'null');
+        const items = saved && saved.length > 0 ? saved : DATA.education;
+        const item = items[idx];
+        document.getElementById('modalInstitution').value = item.institution;
+        document.getElementById('modalMajor').value = item.major;
+        document.getElementById('modalLevel').value = item.level;
+        document.getElementById('modalStartYear').value = item.startYear;
+        document.getElementById('modalEndYear').value = item.endYear || '';
+    }
+
+    modal.dataset.type = 'education';
+    modal.dataset.idx = idx >= 0 ? idx : -1;
+    modal.classList.add('open');
+}
+
+function deleteEdu(idx) {
+    if (!confirm('Hapus pendidikan ini?')) return;
+    const saved = JSON.parse(localStorage.getItem('portfolio_education') || 'null');
+    const items = saved && saved.length > 0 ? [...saved] : [...DATA.education];
+    items.splice(idx, 1);
+    localStorage.setItem('portfolio_education', JSON.stringify(items));
+    renderEducation();
+    showToast('Dihapus!');
+}
+
+// === ACHIEVEMENTS ===
+function renderAchievements(filter = 'all') {
+    const list = document.getElementById('achievementsList');
+    const saved = JSON.parse(localStorage.getItem('portfolio_achievements') || 'null');
+    const items = saved && saved.length > 0 ? saved : DATA.achievements;
+
+    const filtered = filter === 'all' ? items : items.filter(i => i.type === filter);
+
+    if (filtered.length === 0) {
+        list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Belum ada item</p>';
+        return;
+    }
+
+    list.innerHTML = filtered.map((item, idx) => {
+        const realIdx = items.indexOf(item);
+        const icons = { achievement: '🏆', experience: '💼', committee: '🎯' };
+        return `
+        <div class="achievement-item" data-type="${item.type}" data-idx="${realIdx}">
+            <div class="ach-badge ${item.type}">${icons[item.type]}</div>
+            <div class="ach-info">
+                <div class="ach-title">${item.title}</div>
+                <div class="ach-meta">${item.org} · ${item.year}</div>
+                ${item.desc ? `<div style="font-size:0.8rem;color:var(--text-light);margin-top:4px;">${item.desc}</div>` : ''}
+            </div>
+            <span class="ach-type-badge ${item.type}">${item.type}</span>
+        </div>`;
+    }).join('');
+
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if (filter === 'all') {
+        document.querySelector('.filter-btn').classList.add('active');
+    } else {
+        const match = [...document.querySelectorAll('.filter-btn')].find(b => b.dataset.filter === filter);
+        if (match) match.classList.add('active');
+    }
+}
+
+function filterAchievements(type) {
+    renderAchievements(type);
+}
+
+// === MODAL ===
+let editingIdx = -1;
+
+function openAddModal() {
+    editingIdx = -1;
+    document.getElementById('modalTitle').textContent = 'Tambah Item';
+    document.getElementById('eduFormFields').style.display = 'none';
+    document.getElementById('achFormFields').style.display = 'block';
+    document.getElementById('modalType').value = 'achievement';
+    document.getElementById('modalTitleInput').value = '';
+    document.getElementById('modalOrg').value = '';
+    document.getElementById('modalYear').value = '';
+    document.getElementById('modalDesc').value = '';
+    document.getElementById('modalOverlay').classList.add('open');
+    document.getElementById('modalOverlay').dataset.type = 'achievement';
+    document.getElementById('modalOverlay').dataset.idx = -1;
+}
+
+function editItem(idx) {
+    const saved = JSON.parse(localStorage.getItem('portfolio_achievements') || 'null');
+    const items = saved && saved.length > 0 ? saved : DATA.achievements;
+    if (idx < 0 || idx >= items.length) return;
+    const item = items[idx];
+    editingIdx = idx;
+    document.getElementById('modalTitle').textContent = 'Edit Item';
+    document.getElementById('eduFormFields').style.display = 'none';
+    document.getElementById('achFormFields').style.display = 'block';
+    document.getElementById('modalType').value = item.type;
+    document.getElementById('modalTitleInput').value = item.title;
+    document.getElementById('modalOrg').value = item.org;
+    document.getElementById('modalYear').value = item.year;
+    document.getElementById('modalDesc').value = item.desc || '';
+    document.getElementById('modalOverlay').classList.add('open');
+    document.getElementById('modalOverlay').dataset.type = 'achievement';
+    document.getElementById('modalOverlay').dataset.idx = idx;
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    editingIdx = -1;
+}
+
+function saveModal() {
+    const modal = document.getElementById('modalOverlay');
+    const type = modal.dataset.type;
+
+    if (type === 'education') {
+        const institution = document.getElementById('modalInstitution').value.trim();
+        const major = document.getElementById('modalMajor').value.trim();
+        const level = document.getElementById('modalLevel').value;
+        const startYear = document.getElementById('modalStartYear').value.trim();
+        const endYear = document.getElementById('modalEndYear').value.trim();
+
+        if (!institution || !major || !startYear) { showToast('Lengkapi form!'); return; }
+
+        const saved = JSON.parse(localStorage.getItem('portfolio_education') || 'null');
+        const items = saved && saved.length > 0 ? [...saved] : [...DATA.education];
+        const idx = parseInt(modal.dataset.idx);
+        const newItem = { institution, major, level, startYear, endYear };
+
+        if (idx >= 0) items[idx] = newItem;
+        else items.unshift(newItem);
+
+        localStorage.setItem('portfolio_education', JSON.stringify(items));
+        renderEducation();
+        closeModal();
+        showToast(idx >= 0 ? 'Berhasil diupdate!' : 'Berhasil ditambahkan!');
+        return;
+    }
+
+    const achType = document.getElementById('modalType').value;
+    const title = document.getElementById('modalTitleInput').value.trim();
+    const org = document.getElementById('modalOrg').value.trim();
+    const year = document.getElementById('modalYear').value.trim();
+    const desc = document.getElementById('modalDesc').value.trim();
+
+    if (!title) { showToast('Nama/judul harus diisi!'); return; }
+
+    const icons = { achievement: '🏆', experience: '💼', committee: '🎯' };
+    const newItem = { type: achType, title, org, year, icon: icons[achType], desc };
+
+    const saved = JSON.parse(localStorage.getItem('portfolio_achievements') || 'null');
+    const items = saved && saved.length > 0 ? [...saved] : [...DATA.achievements];
+    const idx = parseInt(modal.dataset.idx);
+
+    if (idx >= 0) items[idx] = newItem;
+    else items.unshift(newItem);
+
+    localStorage.setItem('portfolio_achievements', JSON.stringify(items));
+    renderAchievements(document.querySelector('.filter-btn.active')?.dataset?.filter || 'all');
+    closeModal();
+    showToast(idx >= 0 ? 'Berhasil diupdate!' : 'Berhasil ditambahkan!');
+}
+
+// === TOAST ===
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// === EDIT MODE ===
+let editMode = false;
+function toggleEditMode() {
+    editMode = !editMode;
+    const btn = document.getElementById('editBtn');
+    btn.classList.toggle('active', editMode);
+    btn.textContent = editMode ? '✓ Selesai' : 'Edit';
+    const addEduBtn = document.getElementById('addEduBtn');
+    if (addEduBtn) addEduBtn.style.display = editMode ? 'flex' : 'none';
+    showToast(editMode ? 'Mode edit ON — klik + Tambah' : 'Edit selesai');
+}
+
+// === SMOOTH SCROLL for nav active state ===
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// === INIT ===
+document.addEventListener('DOMContentLoaded', () => {
+    fetchGitHub();
+    renderEducation();
+    renderAchievements();
+    const addEduBtn = document.getElementById('addEduBtn');
+    if (addEduBtn) addEduBtn.style.display = 'none';
+});
+</script>
+</body>
+</html>
